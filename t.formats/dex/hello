@@ -9,7 +9,7 @@ ARGS=''
 BROKEN=
 IGNORE_ERR=1
 CMDS="ic"
-EXPECT='0x00000174 [0x000001a4 - 0x0000021e] (sz 122) class 0 LHello
+EXPECT='0x00000174 [0x000001a4 - 0x0000021e] (sz 122) class 0 LHello super: Ljava/lang/Object;
 0x000001a4 method 0 pC   LHello.method.<init>(Ljava/lang/String;)V
 0x000001c0 method 1 sp   LHello.method.main([Ljava/lang/String;)V
 0x000001e8 method 2 p    LHello.method.say()V
@@ -35,7 +35,7 @@ ARGS=''
 BROKEN=
 IGNORE_ERR=1
 CMDS="icq"
-EXPECT='0x00000174 [0x000001a4 - 0x0000021e] LHello
+EXPECT='0x00000174 [0x000001a4 - 0x0000021e] LHello Ljava/lang/Object;
 '
 run_test
 
