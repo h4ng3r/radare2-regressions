@@ -256,7 +256,7 @@ e asm.arch=x86
 e asm.bits=64
 pij -3 @ 0x0040050f
 '
-EXPECT='[{"offset":4195590,"esil":"rbp,8,rsp,-=,rsp,=[8]","refptr":false,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push rbp","bytes":"55","family":"cpu","type":"upush","type_num":12,"type2_num":0,"flags":["main","sym.main"]},{"offset":4195591,"esil":"rsp,rbp,=","refptr":false,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"mov rbp, rsp","bytes":"4889e5","family":"cpu","type":"mov","type_num":9,"type2_num":0},{"offset":4195594,"ptr":4195780,"esil":"4195780,rdi,=","refptr":false,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"mov edi, 0x4005c4","bytes":"bfc4054000","family":"cpu","type":"mov","type_num":9,"type2_num":0}]
+EXPECT='[{"offset":4195590,"esil":"rbp,8,rsp,-=,rsp,=[8]","refptr":false,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push rbp","bytes":"55","family":"cpu","type":"upush","type_num":12,"type2_num":0,"flags":["main","sym.main"]},{"offset":4195591,"esil":"rsp,rbp,=","refptr":false,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"mov rbp, rsp","bytes":"4889e5","family":"cpu","type":"mov","type_num":9,"type2_num":0},{"offset":4195594,"ptr":4195780,"esil":"4195780,rdi,=","refptr":false,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"mov edi, str.Hello_World","bytes":"bfc4054000","family":"cpu","type":"mov","type_num":9,"type2_num":0}]
 '
 
 run_test
