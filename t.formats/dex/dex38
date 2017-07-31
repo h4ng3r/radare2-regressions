@@ -1,0 +1,45 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+APP=../../bins/dex/dex38.dex
+
+NAME='DEX dex38.dex ie command'
+FILE=${APP}
+ARGS=''
+BROKEN=
+IGNORE_ERR=1
+CMDS="ie"
+EXPECT='[Entrypoints]
+vaddr=0x00001378 paddr=0x00001378 baddr=0x00000000 laddr=0x00000000 haddr=-1 type=program
+
+1 entrypoints
+'
+run_test
+
+
+NAME='DEX dex38.dex invoke-polymorphic'
+FILE=${APP}
+ARGS=''
+BROKEN=
+IGNORE_ERR=1
+CMDS="pi 2 @0x00125e; pi 3 @0x0012da"
+EXPECT='invoke-polymorphic {v1, v2, v3}, Ljava/lang/invoke/MethodHandle.invoke([Ljava/lang/Object;)Ljava/lang/Object;, (II)Ljava/lang/Object;
+move-result-object v1
+invoke-polymorphic {v0, v1, v2}, Ljava/lang/invoke/MethodHandle.invoke([Ljava/lang/Object;)Ljava/lang/Object;, (Ljava/lang/String;I)Ljava/lang/Object;
+move-result-object v0
+return-object v0
+'
+run_test
+
+
+NAME='DEX dex38.dex invoke-custom'
+FILE=${APP}
+ARGS=''
+BROKEN=
+IGNORE_ERR=1
+CMDS="pi 3 @0x00112c"
+EXPECT='invoke-custom {v0, v1}, call_site+0
+move-result-object v0
+return-object v0
+'
+run_test
